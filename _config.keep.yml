@@ -41,30 +41,30 @@ style:
       enable: false
 
 
-  social_contact:
+social_contact:
   enable: true
   links:
-    github: https://github.com/jamond-x               # your GitHub URL
-    weixin: http://hueng.top              # your WeChat QR-Code URL
-    qq: http://hueng.top                  # your QQ QR-Code URL
-    weibo: http://hueng.top               # your WeiBo URL
-    zhihu: http://hueng.top               # your ZhiHu URL
-    twitter: http://hueng.top             # your twitter URL
-    facebook: http://hueng.top            # your facebook URL
-    email: x2592253600@163.com               # your email
+    github: https://github.com/jamond-x              # your GitHub URL
+    weixin: https://github.com/jamond-x              # your WeChat QR-Code URL
+    qq: 2592253600                  # your QQ QR-Code URL
+    weibo:     xx           # your WeiBo URL
+    zhihu:     xx           # your ZhiHu URL
+    twitter:     xx         # your twitter URL
+    facebook:    xx         # your facebook URL
+    email:       xx         # your email
 
-  menu:
-  首页: /
-  Archives: /archives
+menu:
+  思考: /
+  关于: /archives
   # Categories: /categories
   # Tags: /tags
   # Links: /links
-  About: /about
+  # About: /about
   # ...
 
 
 
-  post:
+post:
   # Post word count
   # Dependencies: hexo-wordcount (npm install hexo-wordcount)
   # See: https://github.com/willin/hexo-wordcount

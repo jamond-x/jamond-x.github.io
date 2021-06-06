@@ -105,6 +105,8 @@ theme: keep
 
 # ayer
 # keep
+# hiya
+
 
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
@@ -112,3 +114,15 @@ deploy:
   type: git
   repo: https://github.com/jamond-x/jamond-x.github.io
   branch: gh-pages
+
+
+
+menu:
+  首页: /
+  归档: /archives
+  思考: /
+  # Categories: /categories
+  # Tags: /tags
+  # Links: /links
+  About: /about
+  # ...
