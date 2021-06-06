@@ -121,3 +121,7 @@ comment:
   twikoo:
     env_id:                # Tencent Cloud environment id
     region:                # environment region. If select Guangzhou, fill in "ap-guangzhou".
+
+
+cdn:
+  enable: true
