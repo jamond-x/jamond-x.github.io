@@ -1,11 +1,11 @@
 base_info:
-  title: 向兴强
+  title: 向 兴 强
   author: 向兴强
   url: https://keep.xpoet.cn/
 
 style:
   # Theme primary color
-  primary_color: "blue"
+  primary_color: "orange"
 
   # Avatar (You can use local image or image external link)
   avatar: /images/avatar.svg
@@ -45,13 +45,13 @@ style:
   enable: true
   links:
     github: https://github.com/jamond-x               # your GitHub URL
-    weixin:               # your WeChat QR-Code URL
-    qq:                   # your QQ QR-Code URL
-    weibo:                # your WeiBo URL
-    zhihu:                # your ZhiHu URL
-    twitter:              # your twitter URL
-    facebook:             # your facebook URL
-    email:                # your email
+    weixin: http://hueng.top              # your WeChat QR-Code URL
+    qq: http://hueng.top                  # your QQ QR-Code URL
+    weibo: http://hueng.top               # your WeiBo URL
+    zhihu: http://hueng.top               # your ZhiHu URL
+    twitter: http://hueng.top             # your twitter URL
+    facebook: http://hueng.top            # your facebook URL
+    email: x2592253600@163.com               # your email
 
   menu:
   首页: /
