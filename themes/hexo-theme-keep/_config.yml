@@ -54,7 +54,7 @@ style:
 # Social contact link
 # ---------------------------------------------------------------------------------------
 social_contact:
-  enable: false
+  enable: true
   links:
     github:          # your GitHub URL
     weixin:          # your WeChat QR-Code URL
