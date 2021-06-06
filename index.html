@@ -145,8 +145,7 @@
 
 不燥
 
-
-我挥剑只有一次，...
+不骄弱化不燥
                     
                 </div>
 
@@ -158,6 +157,40 @@
     </div>
 
     <a href="/2021/06/06/about/">Read more&nbsp;<i class="fas fa-angle-right"></i></a>
+</div>
+
+            </li>
+        
+            <li class="home-article-item">
+
+                
+
+                <h3 class="home-article-title">
+                    <a href="/2021/06/06/%E6%88%91/">
+                        磨剑十年
+                    </a>
+                </h3>
+
+                <div class="home-article-content markdown-body">
+                    
+                        只关注自己成长  有些东西只是短暂的，可以追求，但不必太重视。相比之下关乎自己成长的东西才是最重要的！
+  你需要从个人成长的角度实际出发，做这件事有益于你的成长吗？
+  如果收效甚微，请把时间放在其他更有价值的东西上！
+
+不燥
+
+不骄弱化不燥
+                    
+                </div>
+
+                <div class="home-article-meta-info-container">
+    <div class="home-article-meta-info">
+        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Sun Jun 06 2021 00:38:39 GMT+0800">2021-06-06</span></span>
+        
+        
+    </div>
+
+    <a href="/2021/06/06/%E6%88%91/">Read more&nbsp;<i class="fas fa-angle-right"></i></a>
 </div>
 
             </li>
@@ -248,9 +281,43 @@
 
     
 
-    <div class="image-viewer-container">
-    <img src="">
-</div>
+    .image-viewer-container {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0);
+  visibility: hidden;
+  z-index: $z-index-8;
+  padding: 6%;
+  box-sizing: border-box;
+  transition-t("visibility, background", "0, 0", "0.3, 0.3", "ease, ease");
+
+  &.active {
+    background: rgba(0, 0, 0, 0.5);
+    visibility: visible;
+
+    img {
+      cursor: zoom-out;
+      transform: scale(1);
+      padding: 2px;
+      background: var(--background-color);
+    }
+  }
+
+  img {
+    max-width: 100%;
+    max-height: 100%;
+    transform: scale(0);
+    transition-t("transform", "0", "0.3", "ease");
+  }
+}
+
+
 
 
     
