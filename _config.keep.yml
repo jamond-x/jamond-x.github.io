@@ -1,0 +1,81 @@
+base_info:
+  title: 向兴强
+  author: 向兴强
+  url: https://keep.xpoet.cn/
+
+style:
+  # Theme primary color
+  primary_color: "blue"
+
+  # Avatar (You can use local image or image external link)
+  avatar: /images/avatar.svg
+
+  # Favicon (You can use local image or image external link)
+  favicon: /images/logo.svg
+
+  # Article image align position, value: left | center
+  article_img_align: left
+
+  # Left side width
+  left_side_width: 260px
+
+  # Content area max width
+  content_max_width: 920px
+
+  # Mouse hover
+  hover:
+    shadow: true # shadow effect when the mouse hover
+    scale: false # scale effect when the mouse hover
+
+  # First screen
+  first_screen:
+    enable: true
+    background_img: /images/bg.svg # You can use local image or image external link
+    description: 磨 剑 十 年 #Keep writing and Keep loving.
+
+  # Scroll style settings
+  scroll:
+    progress_bar:
+      enable: true
+    percent:
+      enable: false
+
+
+  social_contact:
+  enable: true
+  links:
+    github: https://github.com/jamond-x               # your GitHub URL
+    weixin:               # your WeChat QR-Code URL
+    qq:                   # your QQ QR-Code URL
+    weibo:                # your WeiBo URL
+    zhihu:                # your ZhiHu URL
+    twitter:              # your twitter URL
+    facebook:             # your facebook URL
+    email:                # your email
+
+  menu:
+  首页: /
+  Archives: /archives
+  # Categories: /categories
+  # Tags: /tags
+  # Links: /links
+  About: /about
+  # ...
+
+
+
+  post:
+  # Post word count
+  # Dependencies: hexo-wordcount (npm install hexo-wordcount)
+  # See: https://github.com/willin/hexo-wordcount
+  word_count:
+    enable: true
+    wordcount: true  # word count, one article
+    min2read: false   # time to read, one article
+
+  # Author label
+  author_label:
+    enable: true
+    auto: true  # if true, show Lv1, Lv2, Lv3... , If false, show custom label
+    # label array item can be one or more
+    custom_label_list: [ "Trainee", "Engineer", "Architect", "CTO", "BOSS" ]
