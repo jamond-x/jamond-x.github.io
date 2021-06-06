@@ -79,3 +79,45 @@ post:
     auto: true  # if true, show Lv1, Lv2, Lv3... , If false, show custom label
     # label array item can be one or more
     custom_label_list: [ "Trainee", "Engineer", "Architect", "CTO", "BOSS" ]
+
+toc:
+  enable: true
+
+  # Automatically add list number to toc.
+  number: false
+
+  # If true, all level of TOC in a post will be displayed, rather than the activated part of it.
+  expand_all: false
+
+  # If true, open TOC every time when you enter the article page
+  init_open: false
+
+local_search:
+  enable: true
+  preload: false     # Preload the search data when the page loads
+
+
+comment:
+  enable: true
+  use: valine  # values: valine | gitalk | twikoo
+
+  # Valine
+  # See: https://github.com/xCss/Valine
+  valine:
+    appid: BrXLokw1eJUe3frSpqa20Rpn-gzGzoHsz             # your leancloud application appid
+    appkey: 1V3HNK0VGf5SyP6NC9wG0dgN              # your leancloud application appkey
+    placeholder: 评论你想说的    # your placeholder
+
+  # Gitalk
+  # See: https://github.com/gitalk/gitalk
+  gitalk:
+    github_id:             # GitHub repo owner
+    repository:            # Repository name to store issues
+    client_id:             # GitHub Application Client ID
+    client_secret:         # GitHub Application Client Secret
+
+  # Twikoo
+  # See: https://github.com/imaegoo/twikoo
+  twikoo:
+    env_id:                # Tencent Cloud environment id
+    region:                # environment region. If select Guangzhou, fill in "ap-guangzhou".
