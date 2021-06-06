@@ -55,11 +55,11 @@ social_contact:
 
 menu:
   思考: /
-  关于: /archives
+  归档: /archives
   # Categories: /categories
   # Tags: /tags
   # Links: /links
-  # About: /about
+  关于: /about
   # ...
 
 
