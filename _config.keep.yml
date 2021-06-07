@@ -8,7 +8,7 @@ style:
   primary_color: "orange"
 
   # Avatar (You can use local image or image external link)
-  avatar: https://cdn.jsdelivr.net/gh/jamond-x/public-resources/img/%E5%A4%B4%E5%83%8F.jpg
+  avatar: https://cdn.jsdelivr.net/gh/jamond-x/public-resources/icon/发现.png
 
   # /images/avatar.svg
   # https://cdn.jsdelivr.net/gh/jamond-x/public-resources/img/%E5%A4%B4%E5%83%8F.jpg
