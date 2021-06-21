@@ -53,10 +53,10 @@ social_contact:
     github: https://github.com/jamond-x              # your GitHub URL
     weixin: https://github.com/jamond-x              # your WeChat QR-Code URL
     qq: 2592253600                  # your QQ QR-Code URL
-    weibo:     xx           # your WeiBo URL
-    zhihu:     xx           # your ZhiHu URL
+    # weibo:     xx           # your WeiBo URL
+    # zhihu:     xx           # your ZhiHu URL
     twitter:     xx         # your twitter URL
-    facebook:    xx         # your facebook URL
+    # facebook:    xx         # your facebook URL
     email:       xx         # your email
 
 menu:
