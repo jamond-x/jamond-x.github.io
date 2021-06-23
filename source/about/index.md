@@ -3,14 +3,17 @@ title: about
 date: 2021-06-06 22:14:07
 ---
 
-嘿
+<p align='center'> 嘿</p>
 
-这里是**Hueng**
+<p align='center'>这里是<strong>Hueng</strong></p>
 
-大一学生
+<p align='center'>大一学生 </p>
 
-自学Web前端
+<p align='center'>自学Web前端 </p>
 
-在努力
+<p align='center'> 在努力</p>
 
-在寻找自我价值
+<p align='center'>在寻找自我价值 </p>
+
+
+
