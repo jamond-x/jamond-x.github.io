@@ -3,6 +3,8 @@ title: about
 date: 2021-06-06 22:14:07
 ---
 
+<p align='center'><img src='https://cdn.jsdelivr.net/gh/jamond-x/public-resources/img/我.jpg' width='330px' height='300px'></p>
+
 <p align='center'> 嘿</p>
 
 <p align='center'>这里是<strong>Hueng</strong></p>
