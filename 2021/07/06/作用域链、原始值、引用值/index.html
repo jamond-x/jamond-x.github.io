@@ -9,6 +9,8 @@
     
     <title>
         
+            原始值与引用值、按值传递与按引用传递 |
+        
         Hueng
     </title>
     
@@ -161,7 +163,7 @@
     <div class="article-content-container">
 
         <div class="article-title">
-            <span class="title-hover-animation"></span>
+            <span class="title-hover-animation">原始值与引用值、按值传递与按引用传递</span>
         </div>
 
         
@@ -179,7 +181,7 @@
                     <div class="meta-info">
                         <div class="article-meta-info">
     <span class="article-date article-meta-item">
-        <i class="fas fa-edit"></i>&nbsp;2022-02-03 18:24:56
+        <i class="fas fa-edit"></i>&nbsp;2021-07-06 22:14:07
     </span>
     
     
@@ -187,7 +189,7 @@
     
     
         <span class="article-wordcount article-meta-item">
-            <i class="fas fa-file-word"></i>&nbsp;<span>1.1k Words</span>
+            <i class="fas fa-file-word"></i>&nbsp;<span>191 Words</span>
         </span>
     
     
@@ -200,56 +202,18 @@
         
 
         <div class="article-content markdown-body">
-            <h3 id="事件循环及宏微任务"><a href="#事件循环及宏微任务" class="headerlink" title="事件循环及宏微任务"></a>事件循环及宏微任务</h3><h5 id="执行上下文、事件循环"><a href="#执行上下文、事件循环" class="headerlink" title="执行上下文、事件循环"></a>执行上下文、事件循环</h5><p><strong>执行上下文</strong>是代码所处的环境，每个上下文都有属于自己的变量对象，变量对象中包含了该上下文中的所有变量及函数。最外层的上下文是全局上下文，每个函数都拥有自己的上下文。函数被执行实际上是函数及函数所处的上下文被推入执行栈之中。当函数执行完毕后其执行上下文将被销毁。</p>
-<p>三种情况会创建新的执行上下文，一是全局环境一个全局上下文，例如在一个<code>.js</code>文件中写出语句<code>console.log(&#39;全局上下文&#39;)</code>运行文件时该语句会被执行，很明显语句并不在被调用的函数中而是处于全局上下文中。二是函数，每个函数所有属于自己的执行上下文，其中的变量对象中包含了函数作用域中的变量及函数。三是<code>eval()</code>函数。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">one</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">two</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">&quot;内部函数&quot;</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    two()</span><br><span class="line">&#125;</span><br><span class="line">one()</span><br></pre></td></tr></table></figure>
+            <h5 id="原始值与引用值、按值传递与按引用传递"><a href="#原始值与引用值、按值传递与按引用传递" class="headerlink" title="原始值与引用值、按值传递与按引用传递"></a>原始值与引用值、按值传递与按引用传递</h5><p><code>JavaScript</code>中的变量分为两种：</p>
+<p>原始值（Boolean、String、Number、Symbol、Null、Undefined）</p>
+<p>引用值（Object、Array）</p>
+<p>保存原始值的变量按值访问，引用值变量按引用访问。</p>
+<p>值传递：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> a = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">let</span> b = a;</span><br><span class="line"><span class="comment">// 按值传递，赋值变量a对应的值的副本给变量b</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> foo = <span class="built_in">Object</span>();</span><br><span class="line"><span class="keyword">let</span> bar = foo;</span><br><span class="line"><span class="comment">// 变量foo及bar都指向堆内存中同一个对象</span></span><br><span class="line"><span class="comment">// foo赋给bar的对象的引用而不是对象的副本</span></span><br></pre></td></tr></table></figure>
 
-<p>上面代码代码运行时首先会创建一个全局执行上下文并压入执行栈之中，全局执行上下文变量对象包含函数<code>one()</code>。调用函数<code>one()</code>时创建函数one()的执行上下文并将该执行上下文压入执行栈中。执行函数one内部代码块时创建函数<code>two()</code>的执行上下文并压入执行栈中，执行函数two中的代码块。执行完毕后弹出two的执行上下文，将控制权还给之前的执行上下文。函数one执行完后调用栈弹出one的执行上下文。最后是程序结束，调用栈弹出全局执行上下文。</p>
-<p><strong>事件循环</strong>（指Window事件循环）负责收集程序中的事件并对相关任务进行排队，然后调用栈执行宏任务然后执行宏任务中的微任务，在下一次事件循环开始之前对相应执行结果进行渲染。</p>
-<h5 id="宏任务、微任务"><a href="#宏任务、微任务" class="headerlink" title="宏任务、微任务"></a>宏任务、微任务</h5><p><strong>宏任务</strong>可以描述为从头执行的一段程序、一个事件回调或setTimeout/setInterval等触发的标准机制而被调度的js代码。宏任务可以被一段新程序或子程序、事件回调函数、setTimeout/setInterval等方法创建。</p>
-<p><strong>微任务</strong>包含在宏任务之中，每个宏任务被执行时其中的微任务队列中的微任务会被首先执行。</p>
-<table>
-<thead>
-<tr>
-<th><strong>宏任务</strong></th>
-<th>微任务</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>setTimeout</td>
-<td>process.nextTick</td>
-</tr>
-<tr>
-<td>setInterval</td>
-<td>MutationObserver</td>
-</tr>
-<tr>
-<td>setImmediate</td>
-<td>Promise.then</td>
-</tr>
-<tr>
-<td>requestAnimationFrame</td>
-<td>queueMicrotask</td>
-</tr>
-<tr>
-<td>MessageChannel</td>
-<td></td>
-</tr>
-</tbody></table>
-<p><img src="https://cdn.jsdelivr.net/gh/jamond-x/basic-knowdge-review/%E5%89%8D%E7%AB%AF/img/%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF.png"></p>
-<h5 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="number">2</span>);</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="number">1</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="number">3</span>);</span><br><span class="line">    resolve()</span><br><span class="line">&#125;).then(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="number">4</span>);</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="number">6</span>);</span><br><span class="line">        resolve()</span><br><span class="line">    &#125;).then(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="number">7</span>);</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;, <span class="number">0</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="number">5</span>);</span><br><span class="line"></span><br><span class="line">输出顺序：<span class="number">1</span> <span class="number">3</span> <span class="number">5</span> <span class="number">4</span> <span class="number">2</span> <span class="number">6</span> <span class="number">7</span></span><br></pre></td></tr></table></figure>
-
-<p>很明显全局上下文中是一个大的宏任务，所以会执行其中的同步任务即执行两个<code>console.log()</code>和<code>promise</code>中<code>resolve()前</code>的代码。所以按书写顺序打印出<code>1、3、5</code>，然后再执行全局宏任务中的微任务<code>Promise.then()</code>打印<code>4</code>。随后执行下一个宏任务，即第一个<code>setTimeout()</code>，打印<code>2</code>,所以执行下一个宏任务即第二个<code>setTimeout()</code>。先执行其中的同步任务，打印<code>6</code>，随后执行其中的微任务，打印<code>7</code>。</p>
-<p>注意，其中的Promise.then()可以用 <code>queueMicrotask()</code>方法代替。</p>
-<h5 id="vue中的nextTick"><a href="#vue中的nextTick" class="headerlink" title="vue中的nextTick"></a>vue中的nextTick</h5><p>vue中的nextTick在宏、微任务中反复横跳，vue2版本中改变了几次。</p>
-<p>试了下vue3的nextTick。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">setup()&#123;</span><br><span class="line">    setTimeout(() =&gt; &#123;</span><br><span class="line">      console.log(5)</span><br><span class="line">    &#125;, 0)</span><br><span class="line">    void nextTick(() =&gt; &#123;</span><br><span class="line">      console.log(3)</span><br><span class="line">    &#125;)</span><br><span class="line">    setTimeout(() =&gt; &#123;</span><br><span class="line">      console.log(4)</span><br><span class="line">    &#125;, 0)</span><br><span class="line">    queueMicrotask(() =&gt; &#123;</span><br><span class="line">      console.log(2)</span><br><span class="line">    &#125;)</span><br><span class="line">    console.log(1)</span><br><span class="line">&#125;</span><br><span class="line">//输出 1 2 3 5 4</span><br></pre></td></tr></table></figure>
-
-<p><code>queueMicrotask</code>相当于<code>Promise.then()</code>。结果中3在5、4 之前，那么它应该是微任务。但它又在2之后！按理说nextTick先出现，同样是微任务nextTick应该按读取代码顺序在queueMicrotask之前执行。这里vue3做了特殊处理？ 挖个坑，以后填。</p>
-<h5 id="参考文章："><a href="#参考文章：" class="headerlink" title="参考文章："></a>参考文章：</h5><p><a class="link"   target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/EventLoop" >并发模型与事件循环 - JavaScript | MDN (mozilla.org)<i class="fas fa-external-link-alt"></i></a></p>
-<p><a class="link"   target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/API/HTML_DOM_API/Microtask_guide/In_depth" >深入：微任务与Javascript运行时环境 - Web API 接口参考 | MDN (mozilla.org)<i class="fas fa-external-link-alt"></i></a></p>
-<p><a class="link"   target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/API/HTML_DOM_API/Microtask_guide" >在 JavaScript 中通过 queueMicrotask() 使用微任务 - Web API 接口参考 | MDN (mozilla.org)<i class="fas fa-external-link-alt"></i></a></p>
-
+<p>如图所示</p>
+<p><img src="https://cdn.jsdelivr.net/gh/jamond-x/basic-knowdge-review/%E5%89%8D%E7%AB%AF/img/%E5%8E%9F%E5%A7%8B%E5%80%BC%E5%BC%95%E7%94%A8%E5%80%BC%E4%BC%A0%E9%80%92.png"></p>
+<h5 id="作用域链-、var-let-const作用域"><a href="#作用域链-、var-let-const作用域" class="headerlink" title="作用域链 、var let const作用域"></a>作用域链 、var let const作用域</h5><p><code>var</code>声明的变量为函数作用域。<code>let、const</code>为块级作用域。</p>
+<h5 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h5><p>函数持续保存对其他函数作用域的访问权限。</p>
+<h5 id="后续更新闭包的应用"><a href="#后续更新闭包的应用" class="headerlink" title="后续更新闭包的应用"></a>后续更新闭包的应用</h5>
         </div>
 
         
@@ -260,13 +224,13 @@
                     <div class="article-prev">
                         <a class="prev"
                            rel="prev"
-                           href="/2022/02/03/%E4%BD%9C%E7%94%A8%E5%9F%9F%E9%93%BE%E3%80%81%E5%8E%9F%E5%A7%8B%E5%80%BC%E3%80%81%E5%BC%95%E7%94%A8%E5%80%BC/"
+                           href="/2022/01/15/%E5%B8%B8%E8%A7%81%E9%AB%98%E9%98%B6%E5%87%BD%E6%95%B0%EF%BC%88%E4%B8%80%EF%BC%89/"
                         >
                             <span class="left arrow-icon flex-center">
                               <i class="fas fa-chevron-left"></i>
                             </span>
                             <span class="title flex-center">
-                                <span class="post-nav-title-item"></span>
+                                <span class="post-nav-title-item">常见高阶函数（一）</span>
                                 <span class="post-nav-item">Prev posts</span>
                             </span>
                         </a>
@@ -276,10 +240,10 @@
                     <div class="article-next">
                         <a class="next"
                            rel="next"
-                           href="/2022/02/03/%E5%B8%B8%E8%A7%81%E9%AB%98%E9%98%B6%E5%87%BD%E6%95%B0%EF%BC%88%E4%B8%80%EF%BC%89/"
+                           href="/2021/07/06/%E5%B1%82%E5%8F%A0%E4%B8%8A%E4%B8%8B%E6%96%87%E5%8F%8A%E5%85%B6%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98/"
                         >
                             <span class="title flex-center">
-                                <span class="post-nav-title-item"></span>
+                                <span class="post-nav-title-item">层叠上下文</span>
                                 <span class="post-nav-item">Next posts</span>
                             </span>
                             <span class="right arrow-icon flex-center">
@@ -471,7 +435,7 @@
         <aside class="page-aside">
             <div class="post-toc-wrap">
     <div class="post-toc">
-        <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF%E5%8F%8A%E5%AE%8F%E5%BE%AE%E4%BB%BB%E5%8A%A1"><span class="nav-text">事件循环及宏微任务</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%89%A7%E8%A1%8C%E4%B8%8A%E4%B8%8B%E6%96%87%E3%80%81%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF"><span class="nav-text">执行上下文、事件循环</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%AE%8F%E4%BB%BB%E5%8A%A1%E3%80%81%E5%BE%AE%E4%BB%BB%E5%8A%A1"><span class="nav-text">宏任务、微任务</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%A4%BA%E4%BE%8B"><span class="nav-text">示例</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#vue%E4%B8%AD%E7%9A%84nextTick"><span class="nav-text">vue中的nextTick</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E6%96%87%E7%AB%A0%EF%BC%9A"><span class="nav-text">参考文章：</span></a></li></ol></li></ol></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%8E%9F%E5%A7%8B%E5%80%BC%E4%B8%8E%E5%BC%95%E7%94%A8%E5%80%BC%E3%80%81%E6%8C%89%E5%80%BC%E4%BC%A0%E9%80%92%E4%B8%8E%E6%8C%89%E5%BC%95%E7%94%A8%E4%BC%A0%E9%80%92"><span class="nav-text">原始值与引用值、按值传递与按引用传递</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BD%9C%E7%94%A8%E5%9F%9F%E9%93%BE-%E3%80%81var-let-const%E4%BD%9C%E7%94%A8%E5%9F%9F"><span class="nav-text">作用域链 、var let const作用域</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%97%AD%E5%8C%85"><span class="nav-text">闭包</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%90%8E%E7%BB%AD%E6%9B%B4%E6%96%B0%E9%97%AD%E5%8C%85%E7%9A%84%E5%BA%94%E7%94%A8"><span class="nav-text">后续更新闭包的应用</span></a></li></ol>
     </div>
 </div>
         </aside>
