@@ -1,3 +1,10 @@
+---
+title: Grid网格布局
+date: 2021-01-06 22:14:07
+---
+
+
+
 ## 前端CSS基础知识篇——Grid网格布局
 
 <img src="C:\Users\xiangxinqiang\Desktop\FWF\周贴\1.9第一周\img\1.png" style="zoom: 25%;" />  <img src="C:\Users\xiangxinqiang\Desktop\FWF\周贴\1.9第一周\img\2.png" style="zoom:25%;" />
